@@ -18,12 +18,13 @@ public class ExitApp extends CordovaPlugin {
 		/*
 		 * Finishes the activity provided by CordovaInterface.
 		 */
-		
+
 		if (action.equals("exitApp")) {
 			try {
 				Activity activity = this.cordova.getActivity();
 				activity.finishAffinity();
 				callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
+				System.exit(0);
 			} catch (Exception e) {
 				callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, 1));
 			}
